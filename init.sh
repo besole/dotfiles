@@ -30,9 +30,9 @@ for file in "${FILES[@]}"; do
 		rm -r "${HOME}/${file}"
 	fi
 
-	if [[ "${1}" == "copy" ]]; then
-		cp -r "${SCRIPTDIR}/${file}" "${HOME}/${file}"
-	else 
+	if [[ "${1}" == "link" ]]; then
 		ln -s "${SCRIPTDIR}/${file}" "${HOME}/${file}"
+	else
+		cp -r "${SCRIPTDIR}/${file}" "${HOME}/${file}"
 	fi
 done
