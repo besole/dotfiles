@@ -4,6 +4,7 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 FILES=(
 	".bash_aliases"
+	".bash_profile"
 	".bashrc"
 	".xinitrc"
 	".Xresources"
