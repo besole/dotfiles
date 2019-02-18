@@ -1,3 +1,6 @@
+# User Specific binaries
+PATH=$HOME/.local/bin:$PATH
+
 # Aliases
 if [[ -f ~/.bash_aliases ]]; then
 	source ~/.bash_aliases
