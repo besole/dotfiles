@@ -4,4 +4,4 @@
 nitrogen --restore
 
 # Nextcloud
-#nextcloud
+nextcloud
