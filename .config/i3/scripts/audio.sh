@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 function main {
-	info="$(getSoundIcon) $(getCurrentVolume) ($(getCurrentName))"
+#	info="$(getSoundIcon) $(getCurrentVolume) ($(getCurrentName))"
+	info="$(getSoundIcon) $(getCurrentVolume)"
 	echo "$(getPango "$info")"
 }
 function getPango {
