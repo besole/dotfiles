@@ -13,6 +13,7 @@ FILES=(
 	".config/compton.conf"
 	".config/i3/"
 	".config/nitrogen/"
+	".config/dmenu/"
 )
 
 DIRS=(
