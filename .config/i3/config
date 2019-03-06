@@ -189,6 +189,9 @@ bar {
   }
 }
 
+# Focus
+mouse_warping none
+
 # Media Buttons
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ '+2%'  && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ '-2%'  && pkill -RTMIN+1 i3blocks
