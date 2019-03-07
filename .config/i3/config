@@ -173,9 +173,9 @@ bar {
   tray_output primary
   separator_symbol "|"
   
-  set $barBackground #00000000
-  set $barFontColor #FFFFFF
-  set $barInactiveFontColor #FFFFFF99
+  set $barBackground #EEEEEE
+  set $barFontColor #555555
+  set $barInactiveFontColor #999999
   set $accent #44EEDD
 
   colors {
