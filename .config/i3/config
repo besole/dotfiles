@@ -167,7 +167,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
-  i3bar_command i3bar -t
   
   position top
   tray_output primary
@@ -200,9 +199,5 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT
 # Manual Autostart
 exec_always --no-startup-id ~/.config/i3/startup.sh
 
-# I3-Gaps Specifics
-for_window [class="^.*"] border pixel 0
-smart_gaps inverse_outer
-gaps inner 10
-gaps outer 50
-
+# Window Border
+for_window [class="^.*"] border pixel 1
