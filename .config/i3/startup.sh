@@ -2,6 +2,3 @@
 
 # Wallpaper
 nitrogen --restore
-
-# Nextcloud
-nextcloud
