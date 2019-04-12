@@ -8,7 +8,8 @@ def main():
   text = ""
   devices = getDevices()
   for device in devices:
-    text += getDeviceString(device)
+    if not re.match('/org/freedesktop/UPower/devices/line_power_*', device):
+      text += getDeviceString(device)
   print(text)
 
 def getDevices():
@@ -41,7 +42,7 @@ def getBatteryIcon(percentage):
 
 def getDeviceIcon(device):
   prefix = '/org/freedesktop/UPower/devices/'
-  icon = "?"
+  icon = ""
   if re.match(prefix + "mouse", device):
     icon = fontawesome.icons['mouse-pointer']
   if re.match(prefix + "headphone", device):
