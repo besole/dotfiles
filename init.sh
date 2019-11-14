@@ -2,37 +2,29 @@
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-FILES=(
-	".bash_aliases"
-	".bash_profile"
-	".bashrc"
+NEEDED_DIRS=(
+	".config"
+)
+LINKS=(
 	".xinitrc"
 	".Xresources"
 	".xserverrc"
+	".zshrc"
 
-	".config/i3/"
-	".config/nitrogen/"
-	".config/dmenu/"
+	".config/i3"
+	".config/i3blocks"
+	".config/nitrogen"
+	".config/zsh"
 )
 
-DIRS=(
-	".config"
-)
-
-for dir in "${DIRS[@]}"; do
+for dir in "${NEEDED_DIRS[@]}"; do
 	mkdir -p "${HOME}/${dir}"
 done
 
-shopt -s extglob
-for file in "${FILES[@]}"; do
-	file="${file%%+(/)}"
+for file in "${LINKS[@]}"; do
 	if [[ -d "${HOME}/${file}" ]] || [[ -f "${HOME}/${file}" ]]; then
 		rm -r "${HOME}/${file}"
 	fi
 
-	if [[ "${1}" == "link" ]]; then
-		ln -s "${SCRIPTDIR}/${file}" "${HOME}/${file}"
-	else
-		cp -r "${SCRIPTDIR}/${file}" "${HOME}/${file}"
-	fi
+	ln -s "${SCRIPTDIR}/${file}" "${HOME}/${file}"
 done
