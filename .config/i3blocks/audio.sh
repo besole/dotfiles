@@ -7,7 +7,7 @@ function main {
 }
 function getPango {
 	if defaultIsMuted; then
-		echo "<span foreground=\"#444444\">$1</span>"
+		echo "<span foreground=\"${color_inactive}\">$1</span>"
 	else
 		echo "<span>$1</span>"
 	fi
@@ -48,7 +48,7 @@ function getNextCardIndex {
 function getSoundIcon {
 	cardType=$(getCurrentName)
 	icon=
-	if [[ $cardType == "Jabra Link 370" ]]; then
+	if [[ $cardType =~ "Jabra" ]]; then
 		icon=
 	fi
 	echo $icon

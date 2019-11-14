@@ -25,7 +25,7 @@ def getDeviceString(device):
       style = '<span color="#FF0000">%s</span>'
   else:
       style= '%s'
-  return style % (getDeviceIcon(device) + getBatteryIcon(percentage) + ("  %i%%" % percentage))
+  return style % (getDeviceIcon(device) + getBatteryIcon(percentage) + (" %i%%" % percentage))
 
 def getBatteryIcon(percentage):
   if percentage > 75:

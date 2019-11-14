@@ -22,7 +22,8 @@
 *.color15:	#EFF0EB
 
 URxvt.scrollBar:	false
-URxvt.transparent:      true
-URxvt.shading:          70
+URxvt.depth:            32
+URxvt.background:       rgba:0000/0000/0000/9999
 URxvt.internalBorder:	20
-URxvt.termName:         rxvt
+URxvt.termName:         rxvt-unicode-256color
+URxvt.letterSpace:      true

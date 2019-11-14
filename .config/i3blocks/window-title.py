@@ -7,7 +7,7 @@ MAXCHARS = 35
 
 def on_window_focus(i3, e):
     focused = i3.get_tree().find_focused()
-    text = "%s - %s" % (focused.window_class, focused.name)
+    text = "%s" % (focused.name)
     if len(text) > MAXCHARS:
         text = text[:MAXCHARS - 3] + "..."
     print(text)

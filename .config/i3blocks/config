@@ -1,21 +1,22 @@
 markup=pango
+color_inactive=#999999
 
 [windowtitle]
-command=$HOME/.config/i3/scripts/window-title.py
+command=$HOME/.config/i3blocks/window-title.py
 interval=persist
 
 [brightness]
-command=$HOME/.config/i3/scripts/brightness.sh
+command=$HOME/.config/i3blocks/brightness.sh
 interval=once
-signal=2
+signal=1
 
 [volume]
-command=$HOME/.config/i3/scripts/audio.sh
+command=$HOME/.config/i3blocks/audio.sh
 interval=once
 signal=1
 
 [power]
-command=/home/besole/.config/i3/scripts/power.py 2>/dev/null
+command=$HOME/.config/i3blocks/power.sh
 interval=60
 
 [datetime]
