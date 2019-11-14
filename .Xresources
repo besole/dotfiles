@@ -22,7 +22,7 @@
 *.color15:	#EFF0EB
 
 URxvt.termName:        rxvt-unicode-256color
-URxvt.letterSpace:      true
+URxvt.letterSpace:     true
 URxvt.scrollBar:       false
 URxvt.scrollTtyOutput: false
 URxvt.depth:           32
