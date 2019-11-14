@@ -21,9 +21,13 @@
 *.color7:	#EFF0EB
 *.color15:	#EFF0EB
 
-URxvt.scrollBar:	false
-URxvt.depth:            32
-URxvt.background:       rgba:0000/0000/0000/9999
-URxvt.internalBorder:	20
-URxvt.termName:         rxvt-unicode-256color
+URxvt.termName:        rxvt-unicode-256color
 URxvt.letterSpace:      true
+URxvt.scrollBar:       false
+URxvt.scrollTtyOutput: false
+URxvt.depth:           32
+URxvt.background:      rgba:0000/0000/0000/cccc
+URxvt.colorUL:         yellow
+URxvt.underlineColor:  yellow
+URxvt.perl-ext:
+Urxvt.perl-ext-common:
