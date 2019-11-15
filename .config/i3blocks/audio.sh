@@ -47,9 +47,9 @@ function getNextCardIndex {
 }
 function getSoundIcon {
 	cardType=$(getCurrentName)
-	icon=
+	icon=
 	if [[ $cardType =~ "Jabra" ]]; then
-		icon=
+		icon=
 	fi
 	echo $icon
 }
