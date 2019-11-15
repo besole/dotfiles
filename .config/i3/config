@@ -36,8 +36,8 @@ bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAUL
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute      exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+1 i3blocks
 
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/brightness.sh - && pkill -RTMIN+2 i3blocks
-bindsym XF86MonBrightnessUp   exec --no-startup-id ~/.config/i3/scripts/brightness.sh + && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessUp   exec --no-startup-id sudo brightnessctl set +5% && pkill -RTMIN+1 i3blocks
 
 # Workspaces
 bindsym $mod+1 workspace number $ws1
