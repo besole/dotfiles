@@ -16,7 +16,7 @@ systemctl --user import-environment DISPLAY
 
 # Run the Environment
 numlockx &
-compton &
+picom &
 nitrogen --restore &
 nextcloud &
 exec /usr/bin/i3

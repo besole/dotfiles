@@ -1,8 +1,9 @@
 # Environment
 export EDITOR="vim"
 
+export EDITOR="vim"
 export PAGER="less"
 export LESS="-FRX"
-exportLESSHISTFILE=/dev/null
+export LESSHISTFILE=/dev/null
 
-export PATH=$PATH:$HOME/.local/bin
+export TERM=xterm-256color
