@@ -14,6 +14,7 @@ LINKS=(
 	".config/i3"
 	".config/i3blocks"
 	".config/nitrogen"
+	".config/picom"
 	".config/sway"
 	".config/zsh"
 )
