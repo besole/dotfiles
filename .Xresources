@@ -20,5 +20,3 @@
 *.color14:	#9AEDFE
 *.color7:	#EFF0EB
 *.color15:	#EFF0EB
-
-termite*termName: xterm-256color
