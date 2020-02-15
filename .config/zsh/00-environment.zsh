@@ -7,5 +7,3 @@ export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export EDITOR="vim"
 export PAGER="less"
 export LESS="-FRX"
-
-export TERM=xterm-256color

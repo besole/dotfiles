@@ -10,9 +10,9 @@ set $barBackground        #EEEEEE
 set $barFontColor         #555555
 set $barInactiveFontColor #999999
 set $accent               #44EEDD
-set $font "pango:DejaVu Sans Mono 14"
+set $font "pango:Monospace 14"
 
-set $term termite
+set $term xfce4-terminal
 set $menu dmenu_run -fn "$font"
 
 set $ws1 "1"
