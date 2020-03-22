@@ -1,6 +1,6 @@
 [Configuration]
 MiscAlwaysShowTabs=FALSE
-MiscBell=FALSE
+MiscBell=TRUE
 MiscBellUrgent=FALSE
 MiscBordersDefault=FALSE
 MiscCursorBlinks=FALSE
@@ -25,9 +25,11 @@ MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
-MiscShowUnsafePasteDialog=TRUE
+MiscShowUnsafePasteDialog=FALSE
 TitleMode=TERMINAL_TITLE_REPLACE
-ScrollingBar=TERMINAL_SCROLLBAR_NONE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.330000
+ShortcutsNoMnemonics=TRUE
+ShortcutsNoHelpkey=TRUE
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
 
