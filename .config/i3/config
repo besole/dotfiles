@@ -132,3 +132,9 @@ bar {
     active_workspace   $barBackground $barBackground $barFontColor
   }
 }
+
+# Specific Window Definitions
+
+# fix f*cking microsoft teams notifications
+no_focus   [title="Microsoft Teams Notification"]
+for_window [title="Microsoft Teams Notification"] floating enable
