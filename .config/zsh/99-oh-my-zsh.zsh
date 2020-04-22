@@ -1,6 +1,6 @@
 # Configuration
-ZSH=/usr/share/oh-my-zsh
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+ZSH="/usr/share/oh-my-zsh"
+ZSH_CACHE_DIR="${HOME}/.cache/oh-my-zsh"
 ZSH_THEME="ys"
 COMPLETION_WAITING_DOTS="true"
 
@@ -8,4 +8,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=( colored-man-pages virtualenv )
 
 # oh my zsh entry point
-source $ZSH/oh-my-zsh.sh
+source "${ZSH}/oh-my-zsh.sh"
+
+# Compinit
+compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
