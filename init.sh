@@ -16,6 +16,7 @@ LINKS=(
 	".config/nitrogen"
 	".config/picom"
 	".config/sway"
+	".config/vim"
 	".config/xfce4"
 	".config/zsh"
 )

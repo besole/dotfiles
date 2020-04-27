@@ -1,0 +1,25 @@
+" enable syntax highlighting
+syntax on
+
+" enable bg transparency
+hi Normal guibg=NONE ctermbg=NONE
+
+" line numbers
+set number
+set relativenumber
+
+" indents
+set noexpandtab
+set shiftwidth=2
+set tabstop=2
+
+" wrapping
+set nowrap
+set nomodeline
+
+" don't use the mouse (except scrolling)
+set mouse=
+
+" Fix config home
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME
