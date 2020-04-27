@@ -29,7 +29,12 @@ set $ws10 "10"
 # Look and feel
 font $font
 floating_modifier $mod
-for_window [class="^.*"] border pixel 1
+# gaps
+gaps inner 15
+gaps outer 100
+smart_gaps inverse_outer
+# borders
+for_window [class=".*"] border pixel 0
 
 # Media Buttons
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ '+1%'  && $HOME/.config/i3blocks/delay-pkill.sh
