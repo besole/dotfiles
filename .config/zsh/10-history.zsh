@@ -1,1 +1,1 @@
-HISTFILE=/dev/null
+unset HISTFILE
