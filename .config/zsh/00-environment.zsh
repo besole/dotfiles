@@ -17,3 +17,4 @@ export LESS="-FRX"
 
 # Aliases
 alias pwsafe="pwsafe -g \"${XDG_CONFIG_HOME}\"/pwsafe"
+alias feh="feh --scale-down"
