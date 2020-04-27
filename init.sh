@@ -7,7 +7,6 @@ NEEDED_DIRS=(
 )
 LINKS=(
 	".xinitrc"
-	".Xresources"
 	".xserverrc"
 	".zshrc"
 
