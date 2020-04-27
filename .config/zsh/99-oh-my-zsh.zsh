@@ -11,4 +11,4 @@ plugins=( colored-man-pages virtualenv )
 source "${ZSH}/oh-my-zsh.sh"
 
 # Compinit
-compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
+compinit -d "${XDG_CACHE_HOME}/zcompdump-${ZSH_VERSION}"
