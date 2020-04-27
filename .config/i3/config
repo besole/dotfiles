@@ -10,7 +10,7 @@ set $barBackground        #EEEEEE
 set $barFontColor         #555555
 set $barInactiveFontColor #999999
 set $accent               #44EEDD
-set $font "pango:Monospace 14"
+set $font "pango:Sans 14"
 
 set $term xfce4-terminal
 set $menu dmenu_run -fn "$font"
@@ -138,3 +138,6 @@ bar {
 # fix f*cking microsoft teams notifications
 no_focus   [title="Microsoft Teams Notification"]
 for_window [title="Microsoft Teams Notification"] floating enable
+
+# only set urgent state when activating windows
+focus_on_window_activation urgent
