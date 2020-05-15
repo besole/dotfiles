@@ -6,8 +6,6 @@ NEEDED_DIRS=(
 	".config"
 )
 LINKS=(
-	".xinitrc"
-	".xserverrc"
 	".zshrc"
 
 	".config/i3"
@@ -16,6 +14,7 @@ LINKS=(
 	".config/picom"
 	".config/sway"
 	".config/vim"
+	".config/X11"
 	".config/xfce4"
 	".config/zsh"
 )
