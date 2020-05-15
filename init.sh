@@ -28,5 +28,5 @@ for file in "${LINKS[@]}"; do
 		rm -r "${HOME}/${file}"
 	fi
 
-	ln -s "${SCRIPTDIR}/${file}" "${HOME}/${file}"
+	ln -snf "${SCRIPTDIR}/${file}" "${HOME}/${file}"
 done
