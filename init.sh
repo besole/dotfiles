@@ -12,6 +12,7 @@ LINKS=(
 	".config/i3blocks"
 	".config/nitrogen"
 	".config/picom"
+	".config/rofi"
 	".config/sway"
 	".config/vim"
 	".config/X11"
