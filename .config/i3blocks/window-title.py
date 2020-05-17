@@ -24,9 +24,6 @@ def on_workspace(i3, e):
         print("")
         sys.stdout.flush()
 
-def colorOutput(text):
-    print('<span background="#CCCCCC" foreground="#000000"> %s </span>' % text)
-
 def main():
     i3 = i3ipc.Connection()
     i3.on("window::focus", on_window_focus)

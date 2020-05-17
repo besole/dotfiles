@@ -1,21 +1,8 @@
 #!/usr/bin/env bash
 
-function main {
-#	info="$(getSoundIcon) $(getCurrentVolume) ($(getCurrentName))"
-	info="$(getSoundIcon) $(getCurrentVolume)"
-	echo "$(getPango "$info")"
-}
-function getPango {
-	if defaultIsMuted; then
-		echo "<span foreground=\"${color_inactive}\">$1</span>"
-	else
-		echo "<span>$1</span>"
-	fi
-}
 function defaultIsMuted {
-        currentIndex=$(getCurrentIndex)
-        if [[ $(pactl list sinks | sed -n "/Sink #${currentIndex}$/,/^$/p" | grep -Pio '(?<=Mute: ).*') != "no" ]]
-	then
+	currentIndex=$(getCurrentIndex)
+	if [[ $(pactl list sinks | sed -n "/Sink #${currentIndex}$/,/^$/p" | grep -Pio '(?<=Mute: ).*') != "no" ]]; then
 		return 0
 	else
 		return 1
@@ -69,4 +56,7 @@ if ! [[ -z $BLOCK_BUTTON ]]; then
 	setNextDefault
 fi
 
-echo $(main)
+info="$(getSoundIcon) $(getCurrentVolume)"
+echo "$info"
+echo "$info"
+if defaultIsMuted; then echo "$color_inactive"; fi

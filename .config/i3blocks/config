@@ -1,5 +1,5 @@
-markup=pango
 color_inactive=#999999
+color_error=#ff0000
 
 [windowtitle]
 command=$HOME/.config/i3blocks/window-title.py
