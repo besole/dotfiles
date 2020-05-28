@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 function defaultIsMuted {
 	currentIndex=$(getCurrentIndex)
@@ -18,10 +18,11 @@ function getCurrentName {
 function getCurrentVolume {
 	currentIndex=$(getCurrentIndex)
 	pactl list sinks | 
-                sed -n "/Sink #${currentIndex}$/,/^$/p" | 
-		grep -Pi '^\s*volume:' | 
-		grep -Po "[0-9]+%" | 
-		head -n1
+    sed -n "/Sink #${currentIndex}$/,/^$/p" | 
+		egrep -i '^\s*volume:' | 
+		egrep -o "[0-9]+%" | 
+		head -n1 |
+		egrep -o "[0-9]+"
 }
 function getNextCardIndex {
 	currentIndex=$(getCurrentIndex)
@@ -52,11 +53,19 @@ function setNextDefault {
 }
 
 
-if ! [[ -z $BLOCK_BUTTON ]]; then
-	setNextDefault
+title="Volume - $(getSoundIcon)"
+if defaultIsMuted; then
+	title="${title} - Muted"
 fi
 
-info="$(getSoundIcon) $(getCurrentVolume)"
-echo "$info"
-echo "$info"
-if defaultIsMuted; then echo "$color_inactive"; fi
+currentVolume=$(getCurrentVolume)
+info="${currentVolume}% "
+for i in $(seq 1 25); do
+	if [[ $(( i * 4 )) -le ${currentVolume} ]]; then
+		info="${info}█"
+	fi
+done
+#info="${info}]"
+
+paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+notify-send -u critical -h string:x-canonical-private-synchronous:besole-pulse-volume "${title}" "${info}"

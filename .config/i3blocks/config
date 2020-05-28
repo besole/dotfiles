@@ -10,11 +10,6 @@ command=$HOME/.config/i3blocks/brightness.sh
 interval=once
 signal=1
 
-[volume]
-command=$HOME/.config/i3blocks/audio.sh
-interval=once
-signal=1
-
 [power]
 command=$HOME/.config/i3blocks/power.sh
 interval=60
