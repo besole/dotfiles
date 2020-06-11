@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 CURRENT=$( brightnessctl get )
 MAX=$(brightnessctl max )

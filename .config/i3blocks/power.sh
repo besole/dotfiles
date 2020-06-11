@@ -1,16 +1,16 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 BAT=/sys/class/power_supply/BAT0
 
 CAPACITY=$(cat "${BAT}/capacity")
 
-if [[ $( cat "${BAT}/status" ) = "Charging" ]]; then
+if [ "$( cat "${BAT}/status" )" = "Charging" ]; then
   ICON=""
-elif [[ ${CAPACITY} -ge 65 ]]; then
+elif [ "${CAPACITY}" -ge 65 ]; then
   ICON=""
-elif [[ ${CAPACITY} -ge 40 ]]; then
+elif [ "${CAPACITY}" -ge 40 ]; then
   ICON=""
-elif [[ ${CAPACITY} -ge 15 ]]; then
+elif [ "${CAPACITY}" -ge 15 ]; then
   ICON=""
 else
   ICON=""
@@ -19,4 +19,4 @@ fi
 
 echo "${ICON} ${CAPACITY}%"
 echo "${ICON} ${CAPACITY}%"
-if ! [[ -z "${color}" ]]; then echo "${color}"; fi
+if [ -n "${color}" ]; then echo "${color}"; fi
