@@ -26,9 +26,9 @@ getNextCardIndex(){
 }
 getSoundIcon(){
 	cardType=$(getDefaultAttribute 'name')
-	icon=" "
+	icon=""
 	if echo "$cardType" | grep -q 'Jabra'; then
-		icon=" "
+		icon=""
 	fi
 	echo "$icon"
 }
@@ -63,3 +63,5 @@ done
 
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
+
+echo "$(getSoundIcon)"
