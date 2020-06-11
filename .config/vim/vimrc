@@ -20,6 +20,9 @@ set nomodeline
 " don't use the mouse (except scrolling)
 set mouse=
 
+" disable netrwhist
+let g:netrw_dirhistmax=0
+
 " Fix config home
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME
