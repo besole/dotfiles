@@ -15,5 +15,5 @@ command=$HOME/.config/i3blocks/power.sh
 interval=60
 
 [datetime]
-command=echo " $(date "+%H:%M")   $(date "+%d.%m.%Y")"
+command=echo " $(date "+%H:%M")   $(date +"%a, %d.%m.%Y")"
 interval=10
