@@ -1,71 +1,65 @@
 #!/usr/bin/env sh
 
-function defaultIsMuted {
-	currentIndex=$(getCurrentIndex)
-	if [[ $(pactl list sinks | sed -n "/Sink #${currentIndex}$/,/^$/p" | grep -Pio '(?<=Mute: ).*') != "no" ]]; then
-		return 0
-	else
-		return 1
-	fi
+getDefaultAttribute(){
+	pacmd list-sinks | grep -E "\* index:|^[[:blank:]]+${1}:" | grep -A1 '* index' | tail -n1 | cut -d " " -f 2-
 }
-function getCurrentIndex { 
-        pactl list sinks | grep "Name: $(pactl info | grep -Pio '(?<=^Default Sink: ).*')" -B2 | head -n1 | grep -Po '[0-9]+'
-}
-function getCurrentName {
-        currentIndex=$(getCurrentIndex)
-        pactl list sinks | sed -n "/Sink #${currentIndex}$/,/^$/p" | grep -Pio '(?<=alsa.card_name = ").*(?=")'
-}
-function getCurrentVolume {
-	currentIndex=$(getCurrentIndex)
-	pactl list sinks | 
-    sed -n "/Sink #${currentIndex}$/,/^$/p" | 
-		egrep -i '^\s*volume:' | 
-		egrep -o "[0-9]+%" | 
-		head -n1 |
-		egrep -o "[0-9]+"
-}
-function getNextCardIndex {
-	currentIndex=$(getCurrentIndex)
-	((currentIndex++))
 
-	if ! pactl list sinks | grep -Piq "^Sink #${currentIndex}$"; then
-		currentIndex=0
+isDefaultMuted(){
+	if [ "$(getDefaultAttribute 'muted')" = "no" ]; then
+		return 1
+	else
+		return 0
 	fi
-	echo $currentIndex
 }
-function getSoundIcon {
-	cardType=$(getCurrentName)
-	icon=
-	if [[ $cardType =~ "Jabra" ]]; then
-		icon=
+getDefaultIndex(){
+        pacmd list-sinks | grep '* index:' | grep -Eo '[0-9]+'
+}
+getDefaultVolume(){
+	getDefaultAttribute 'volume' | grep -Eo "[0-9]+%" | head -n1 | grep -Eo "[0-9]+"
+}
+getNextCardIndex(){
+	nextCardIndex=$(pacmd list-sinks | grep 'index:' | grep -A1 '* index:' | tail -n1 | grep -Eo "[0-9]+")
+	if [ "$nextCardIndex" = "$(getDefaultIndex)" ]; then
+		nextCardIndex=$(pacmd list-sinks | grep 'index:' | head -n1 | grep -Eo "[0-9]+")
 	fi
-	echo $icon
+	echo "$nextCardIndex"
 }
-function moveStreamsToDefault {
-	pactl list sink-inputs | grep -Poi '(?<=Sink Input #)[0-9]+' | while read -r stream; do
-		pactl move-sink-input $stream @DEFAULT_SINK@
+getSoundIcon(){
+	cardType=$(getDefaultAttribute 'name')
+	icon=" "
+	if echo "$cardType" | grep -q 'Jabra'; then
+		icon=" "
+	fi
+	echo "$icon"
+}
+moveStreamsToDefault(){
+	pacmd list-sink-inputs | grep -E 'index:' | grep -Eo '[0-9]+' | while read -r stream; do
+		pacmd move-sink-input "$stream" @DEFAULT_SINK@
 	done
 }
-function setNextDefault {
-	nextCard=$(getNextCardIndex)
-	pactl set-default-sink $nextCard
+setNextDefault(){
+	pacmd set-default-sink "$(getNextCardIndex)"
 	moveStreamsToDefault
 }
 
 
+
+if [ -n "$button" ]; then
+	setNextDefault
+fi
+
 title="Volume - $(getSoundIcon)"
-if defaultIsMuted; then
+if isDefaultMuted; then
 	title="${title} - Muted"
 fi
 
-currentVolume=$(getCurrentVolume)
+currentVolume=$(getDefaultVolume)
 info="${currentVolume}% "
 for i in $(seq 1 25); do
-	if [[ $(( i * 4 )) -le ${currentVolume} ]]; then
+	if [ $(( i * 4 )) -le "${currentVolume}" ]; then
 		info="${info}█"
 	fi
 done
-#info="${info}]"
 
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-notify-send -u critical -h string:x-canonical-private-synchronous:besole-pulse-volume "${title}" "${info}"
+notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
