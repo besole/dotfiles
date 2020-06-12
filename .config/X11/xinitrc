@@ -16,6 +16,7 @@ systemctl --user import-environment DISPLAY
 
 # Run the Environment
 numlockx &
+unclutter &
 picom &
 nitrogen --restore &
 nextcloud &
