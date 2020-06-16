@@ -7,7 +7,7 @@ command=$HOME/.config/i3blocks/window-title.py
 interval=persist
 
 [qemurunning]
-command=pgrep qemu-system >/dev/null && printf "Qemu Running!\n\n$color_warning\n"
+command=pgrep qemu-system >/dev/null && printf " Qemu \n\n$color_warning\n"
 interval=10
 
 [brightness]
