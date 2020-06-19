@@ -16,7 +16,7 @@ systemctl --user import-environment DISPLAY
 
 # Run the Environment
 numlockx &
-unclutter &
+unclutter --timeout 2 --jitter 10 --ignore-scrolling &
 picom &
 nitrogen --restore &
 nextcloud &
