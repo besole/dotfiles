@@ -39,4 +39,5 @@ ColorPalette=rgb(39,40,34);rgb(188,12,44);rgb(143,205,19);rgb(213,153,68);rgb(55
 ColorCursor=#f8f8f8f8f2f2
 TabActivityColor=#a6a6e2e22e2e
 ScrollingOnOutput=FALSE
+FontName=Hack 12
 
