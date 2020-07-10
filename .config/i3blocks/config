@@ -28,9 +28,9 @@ command=$HOME/.config/i3blocks/gpu-temp.sh
 interval=10
 
 [volume]
-command=$HOME/.config/i3blocks/audio.sh
+command=SHOWICON=1 $HOME/.config/i3blocks/audio.sh
 interval=once
-signal=1
+signal=2
 
 [datetime]
 command=echo " $(date "+%H:%M")   $(date +"%a, %d.%m.%Y")"

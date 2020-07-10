@@ -43,27 +43,31 @@ setNextDefault(){
 }
 
 
-
+# Switch output
 if [ -n "$button" ]; then
 	setNextDefault
-	echo "$(getSoundIcon)"
-
-else
-	title="Volume - $(getSoundIcon)"
-	if isDefaultMuted; then
-		title="${title} - Muted"
-	fi
-
-	currentVolume=$(getDefaultVolume)
-	info="${currentVolume}% "
-	for i in $(seq 1 25); do
-		if [ $(( i * 4 )) -le "${currentVolume}" ]; then
-			info="${info}█"
-		fi
-	done
-
-	paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-	notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
-
-
 fi
+
+# Write output
+if [ -n "${SHOWICON}" ]; then
+	echo "$(getSoundIcon)"
+	if isDefaultMuted; then
+		echo "${color_inactive}"
+		echo "${color_inactive}"
+	fi
+fi
+
+# Show notification
+title="Volume - $(getSoundIcon)"
+if isDefaultMuted; then
+	title="${title} - Muted"
+fi
+currentVolume=$(getDefaultVolume)
+info="${currentVolume}% "
+for i in $(seq 1 25); do
+	if [ $(( i * 4 )) -le "${currentVolume}" ]; then
+		info="${info}█"
+	fi
+done
+paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
