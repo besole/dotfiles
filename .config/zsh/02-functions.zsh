@@ -1,3 +1,4 @@
+# Random Slideshow with optional path argument
 randslide(){
 	dir=${1:-$(pwd)}
 	(
