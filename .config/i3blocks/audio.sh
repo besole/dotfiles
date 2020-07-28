@@ -42,6 +42,16 @@ setNextDefault(){
 	moveStreamsToDefault
 }
 
+# check if pulseaudio is running
+if command -v pulseaudio >/dev/null; then
+	if ! pulseaudio --check; then
+		echo ""
+		echo ""
+		echo "${color_error}"
+		exit 1
+	fi
+fi
+
 
 # Switch output
 if [ -n "$button" ]; then
@@ -52,7 +62,7 @@ fi
 if [ -n "${SHOWICON}" ]; then
 	echo "$(getSoundIcon)"
 	if isDefaultMuted; then
-		echo "${color_inactive}"
+		echo "$(getSoundIcon)"
 		echo "${color_inactive}"
 	fi
 fi
