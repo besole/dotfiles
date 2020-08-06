@@ -1,5 +1,0 @@
-###########################
-# Sway Configuration File #
-###########################
-
-include $HOME/.config/sway/conf.d/*
