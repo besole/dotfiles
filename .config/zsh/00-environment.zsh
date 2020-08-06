@@ -22,5 +22,3 @@ export VIMINIT=":source ${XDG_CONFIG_HOME}/vim/vimrc"
 export XAUTHORITY="${XDG_DATA_HOME}/Xauthority"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export XSERVERRC="${XDG_CONFIG_HOME}/X11/xserverrc"
-# bad app alias fixes
-alias pwsafe="pwsafe -g \"${XDG_CONFIG_HOME}\"/pwsafe"
