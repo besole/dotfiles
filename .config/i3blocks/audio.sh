@@ -1,26 +1,29 @@
 #!/usr/bin/env sh
 
 getDefaultAttribute(){
-	pacmd list-sinks | grep -E "\* index:|^[[:blank:]]+${1}:" | grep -A1 '* index' | tail -n1 | cut -d " " -f 2-
+	SINK="$(getDefaultIndex)"
+	pactl list sinks | awk "/Sink #${SINK}/,/^$/" | grep -Ei "^[[:blank:]]+${1}:" | cut -d " " -f 2-
 }
 
 isDefaultMuted(){
-	if [ "$(getDefaultAttribute 'muted')" = "no" ]; then
+	if [ "$(getDefaultAttribute 'mute')" = "no" ]; then
 		return 1
 	else
 		return 0
 	fi
 }
 getDefaultIndex(){
-        pacmd list-sinks | grep '* index:' | grep -Eo '[0-9]+'
+	DEFAULTNAME="$(pactl info | awk -F ": " '/^Default Sink: / {print $2}' )"
+	pactl list sinks short | grep "${DEFAULTNAME}" | awk '{print $1}'
 }
 getDefaultVolume(){
-	getDefaultAttribute 'volume' | grep -Eo "[0-9]+%" | head -n1 | grep -Eo "[0-9]+"
+	getDefaultAttribute 'volume' | grep -Eo "[[:digit:]]+%" | head -n1 | grep -Eo "[[:digit:]]+"
 }
 getNextCardIndex(){
-	nextCardIndex=$(pacmd list-sinks | grep 'index:' | grep -A1 '* index:' | tail -n1 | grep -Eo "[0-9]+")
-	if [ "$nextCardIndex" = "$(getDefaultIndex)" ]; then
-		nextCardIndex=$(pacmd list-sinks | grep 'index:' | head -n1 | grep -Eo "[0-9]+")
+	SINK="$(getDefaultIndex)"
+	nextCardIndex="$(pactl list sinks short | grep -EA1 "^${SINK}[[:blank:]]" | grep -Ev "^${SINK}[[:blank:]]" | awk '{print $1}')"
+	if [ -z "$nextCardIndex" ]; then
+		nextCardIndex="$(pactl list sinks short | head -n1 | awk '{print $1}')"
 	fi
 	echo "$nextCardIndex"
 }
@@ -33,38 +36,27 @@ getSoundIcon(){
 	echo "$icon"
 }
 moveStreamsToDefault(){
-	pacmd list-sink-inputs | grep -E 'index:' | grep -Eo '[0-9]+' | while read -r stream; do
-		pacmd move-sink-input "$stream" @DEFAULT_SINK@
+	pactl list sink-inputs short | awk '{print $1}' | while read stream; do
+		pcatl move-sink-input "${stream}" @DEFAULT_SINK@
 	done
 }
 setNextDefault(){
-	pacmd set-default-sink "$(getNextCardIndex)"
+	pactl set-default-sink "$(getNextCardIndex)"
 	moveStreamsToDefault
 }
 
 # check if pulseaudio is running
-if command -v pulseaudio >/dev/null; then
-	if ! pulseaudio --check; then
-		echo ""
-		echo ""
-		echo "${color_error}"
-		exit 1
-	fi
+pactl info >/dev/null 2>/dev/null
+if [ $? -ne 0 ]; then
+	echo ""
+	echo ""
+	echo "${color_error}"
+	return 1
 fi
 
-
-# Switch output
+# switch to next card
 if [ -n "$button" ]; then
 	setNextDefault
-fi
-
-# Write output
-if [ -n "${SHOWICON}" ]; then
-	echo "$(getSoundIcon)"
-	if isDefaultMuted; then
-		echo "$(getSoundIcon)"
-		echo "${color_inactive}"
-	fi
 fi
 
 # Show notification
@@ -81,3 +73,12 @@ for i in $(seq 1 25); do
 done
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
+
+# Write output
+if [ -n "${SHOWICON}" ]; then
+	echo "$(getSoundIcon)"
+	if isDefaultMuted; then
+		echo "$(getSoundIcon)"
+		echo "${color_inactive}"
+	fi
+fi
