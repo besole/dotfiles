@@ -37,7 +37,7 @@ getSoundIcon(){
 }
 moveStreamsToDefault(){
 	pactl list sink-inputs short | awk '{print $1}' | while read stream; do
-		pcatl move-sink-input "${stream}" @DEFAULT_SINK@
+		pactl move-sink-input "${stream}" @DEFAULT_SINK@
 	done
 }
 setNextDefault(){
