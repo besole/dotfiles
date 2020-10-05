@@ -8,7 +8,7 @@ randslide(){
 }
 
 # Search Bitwarden and grep for needed data
-bw-search(){
+bwsearch(){
 	if ! bw status | grep -q '"status":"unlocked"'; then
 		export BW_SESSION="$(bw unlock --raw)"
 	fi
