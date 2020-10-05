@@ -6,8 +6,6 @@ export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 # History
 export HISTFILE="${XDG_DATA_HOME}/zsh-history"
-export HISTSIZE=0
-export SAVEHIST=0
 
 # Tools
 export EDITOR="vim"
