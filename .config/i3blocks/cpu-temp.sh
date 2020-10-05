@@ -11,4 +11,4 @@ done
 
 echo " $TEMP°C"
 echo " $TEMP°C"
-if [ $TEMP = "-not found-" ] || [ $TEMP -gt 70 ]; then echo "$color_error"; fi
+if [ $TEMP = "-not found-" ] || [ $TEMP -gt 80 ]; then echo "$color_error"; fi
