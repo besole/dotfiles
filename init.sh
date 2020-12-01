@@ -10,6 +10,7 @@ LINKS=(
 
 	".config/i3"
 	".config/i3blocks"
+	".config/kitty"
 	".config/nitrogen"
 	".config/picom"
 	".config/rofi"
