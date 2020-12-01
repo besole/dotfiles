@@ -11,9 +11,6 @@ fi
 # Set Look and Feel
 [ -f $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
 
-# Import systemd display environment
-systemctl --user import-environment DISPLAY
-
 # Run the Environment
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
