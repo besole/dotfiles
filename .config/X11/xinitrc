@@ -17,6 +17,7 @@ unclutter --timeout 2 --jitter 10 --ignore-scrolling &
 picom &
 nitrogen --restore &
 nextcloud &
+dunst &
 
 # Create i3 config from config-parts
 if command -v generate-i3-config.sh > /dev/null; then

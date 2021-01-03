@@ -8,6 +8,7 @@ NEEDED_DIRS=(
 LINKS=(
 	".zshrc"
 
+	".config/dunst"
 	".config/i3"
 	".config/i3blocks"
 	".config/kitty"
