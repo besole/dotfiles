@@ -65,12 +65,15 @@ if isDefaultMuted; then
 	title="${title} - Muted"
 fi
 currentVolume=$(getDefaultVolume)
-info="${currentVolume}% "
-for i in $(seq 1 25); do
-	if [ $(( i * 4 )) -le "${currentVolume}" ]; then
+info="$(printf "%3d" ${currentVolume})% "
+for i in $(seq 0 25); do
+	if [ "${currentVolume}" -lt $(( i * 4 )) ] || [ "${currentVolume}" -eq "0" ]; then
+		info="${info}░"
+	else
 		info="${info}█"
 	fi
 done
+
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
 
