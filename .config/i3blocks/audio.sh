@@ -75,7 +75,7 @@ for i in $(seq 0 25); do
 done
 
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-notify-send -u critical -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
+notify-send -u low -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
 
 # Write output
 if [ -n "${SHOWICON}" ]; then
