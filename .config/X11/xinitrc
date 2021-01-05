@@ -20,9 +20,7 @@ nextcloud &
 dunst &
 
 # Create i3 config from config-parts
-if command -v generate-i3-config.sh > /dev/null; then
-  generate-i3-config.sh
-fi
+generate-i3-config.sh
 
 # Run i3
 exec /usr/bin/i3
