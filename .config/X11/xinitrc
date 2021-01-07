@@ -11,6 +11,10 @@ fi
 # Set Look and Feel
 [ -f $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
 
+# Keyring
+eval $( /usr/bin/gnome-keyring-daemon --start )
+export SSH_AUTH_SOCK
+
 # Run the Environment
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
