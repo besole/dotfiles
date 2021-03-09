@@ -1,3 +1,8 @@
+# Colors
+alias ls="ls --color"
+alias diff="diff --color"
+alias grep="grep --color"
+
 # Aliases
 alias feh="/usr/bin/feh --scale-down"
 alias xinit="echo 'Please use startx!'"
