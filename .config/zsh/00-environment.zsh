@@ -1,5 +1,7 @@
-# Prompt
-export PROMPT="%(?..%?| )%(_.%n@%m:%~ %# .%_)"
+# Prompt & tab name
+export PS1="%(?..%F{red}%?%f| )%F{green}%n@%m%f:%~ %# "
+preexec () {print -Pn "\e]0;${3}\a"}
+precmd () {print -Pn "\e]0;%n@%m:%~\a"}
 
 # Environment
 export XDG_CONFIG_HOME="${HOME}/.config"
