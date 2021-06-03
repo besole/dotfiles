@@ -1,6 +1,9 @@
 " enable syntax highlighting
 syntax on
 
+" case-insensitive search
+set smartcase
+
 " enable bg transparency
 hi Normal guibg=NONE ctermbg=NONE
 
