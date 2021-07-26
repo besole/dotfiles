@@ -3,6 +3,9 @@ export PS1="%(?..%F{red}%?%f| )%F{green}%n@%m%f:%~ %# "
 preexec () {print -Pn "\e]0;${3}\a"}
 precmd () {print -Pn "\e]0;%n@%m:%~\a"}
 
+# Autcomplete Spaces
+ZLE_REMOVE_SUFFIX_CHARS=
+
 # Environment
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
