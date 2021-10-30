@@ -23,6 +23,9 @@ set nomodeline
 " don't use the mouse (except scrolling)
 set mouse=
 
+" use clipboard by default
+set clipboard=unnamedplus
+
 " disable netrwhist
 let g:netrw_dirhistmax=0
 
