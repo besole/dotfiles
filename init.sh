@@ -4,6 +4,7 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 NEEDED_DIRS=(
 	".config"
+	".local"
 )
 LINKS=(
 	".zshrc"
@@ -20,6 +21,8 @@ LINKS=(
 	".config/X11"
 	".config/xfce4"
 	".config/zsh"
+
+	".local/bin"
 )
 
 for dir in "${NEEDED_DIRS[@]}"; do
