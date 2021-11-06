@@ -20,7 +20,7 @@ export SAVEHIST=1000000
 # Tools
 export EDITOR="vim"
 export PAGER="less"
-export LESS="-R"
+export LESS="-FRS --shift 5"
 
 # Fix a few bad apps
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME}/android"
