@@ -15,11 +15,22 @@ fi
 eval $( /usr/bin/gnome-keyring-daemon --start )
 export SSH_AUTH_SOCK
 
+# Monitor Configuration
+xrandr --addmode Virtual-2 1920x1080
+xrandr --addmode Virtual-3 1920x1080
+xrandr \
+	--output Virtual-1 --mode 1920x1080 --left-of Virtual-2 \
+	--output Virtual-2 --mode 1920x1080 --primary \
+	--output Virtual-3 --mode 1920x1080 --right-of Virtual-2
+
+xset -dpms
+xset s off
+
 # Run the Environment
+spice-vdagent
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
-feh --no-fehbg --bg-fill ~/.config/feh/current
-nextcloud &
+nitrogen --restore &
 dunst &
 
 # Create i3 config from config-parts
