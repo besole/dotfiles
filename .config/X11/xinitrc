@@ -16,7 +16,6 @@ eval $( /usr/bin/gnome-keyring-daemon --start )
 export SSH_AUTH_SOCK
 
 # Run the Environment
-redshift -P -O 4250
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
 picom &
