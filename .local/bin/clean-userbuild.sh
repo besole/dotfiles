@@ -1,17 +1,48 @@
 #!/usr/bin/env bash
 
-USERBUILD=${USERBUILD:-${HOME}/userbuild}
-REPOSITORIES=$( find -L "${USERBUILD}" -type d -name ".git" -not -path "*/src/*" -exec dirname {} \; )
+main(){
+	USERBUILD=${USERBUILD:-${HOME}/userbuild}
+	REPOSITORIES=$( find -L "${USERBUILD}" -type d -name ".git" -not -path "*/src/*" -exec dirname {} \; )
 
-while read -u 9 repo; do
-	if [ -n "$(git -C "${repo}" clean -d -x -ff --dry-run)" ]; then
-		echo "${repo}"
-		git -C "${repo}" clean -d -x -ff --dry-run | sed 's/^/	/'
-		read -p "	Remove files [y|N]? " answer
-		if [ "${answer}" = "y" ] || [ "${answer}" = "Y" ]; then
-			echo ""
-			git -C "${repo}" clean -d -x -ff
-		fi
+	while read -r -u 9 repo; do
+
+		if isDotfile "${repo}"; then continue; fi
+		if isClean   "${repo}"; then continue; fi
+
+		cleanRepo "${repo}"
 		echo ""
+
+	done 9<<< "${REPOSITORIES}"
+}
+
+cleanRepo(){
+	echo "${1} - files to clean:"
+	git -C "${1}" clean -d -x -ff --dry-run | sed 's/^/  /'
+
+	echo -n 'Delete files? [y|N] '
+	read -r answer
+	if [ "${answer}" = 'y' ] || [ "${answer}" = "Y" ]; then
+		git -C "${1}" clean -d -x -ff -q
+		echo "Done."
+	else
+		echo "Skipping."
 	fi
-done 9<<< "${REPOSITORIES}"
+}
+
+isDotfile(){
+	if echo "${1}" | grep -F -q "git/dotfiles"; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+isClean(){
+	if [ -z "$(git -C "${1}" clean -d -x -ff --dry-run)" ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+main
