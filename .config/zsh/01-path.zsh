@@ -7,6 +7,14 @@ append_path () {
 	esac
 }
 
-append_path "${HOME}/.local/bin"
+prepend_path () {
+	case ":$PATH:" in
+		*:"$1"*) ;;
+		*) PATH="$1${PATH:+:$PATH}";;
+	esac
+}
+
+prepend_path "${HOME}/.local/bin"
 
 unset -f append_path
+unset -f prepend_path
