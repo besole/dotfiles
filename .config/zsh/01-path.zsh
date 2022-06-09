@@ -15,6 +15,7 @@ prepend_path () {
 }
 
 prepend_path "${HOME}/.local/bin"
+prepend_path "${HOME}/.local/bin/virt"
 
 unset -f append_path
 unset -f prepend_path
