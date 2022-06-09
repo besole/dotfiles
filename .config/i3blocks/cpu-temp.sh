@@ -9,6 +9,6 @@ for typeFile in /sys/class/thermal/thermal_zone*/type; do
 	fi
 done
 
-echo " $TEMP°C"
-echo " $TEMP°C"
+echo " $TEMP°C"
+echo " $TEMP°C"
 if [ $TEMP = "-not found-" ] || [ $TEMP -gt 80 ]; then echo "$color_error"; fi

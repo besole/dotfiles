@@ -10,4 +10,4 @@ else
 fi
 
 # Output
-echo " ${TEMP}°C"
+echo " ${TEMP}°C"
