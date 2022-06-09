@@ -22,6 +22,9 @@ feh --no-fehbg --bg-fill ~/.config/feh/current
 nextcloud &
 dunst &
 
+# Allow X11 Access to other users
+xhost +si:localuser:kirchenweb
+
 # Create i3 config from config-parts
 generate-i3-config.sh
 
