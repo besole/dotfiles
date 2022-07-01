@@ -4,7 +4,7 @@ main(){
 	USERBUILD=${USERBUILD:-${HOME}/userbuild}
 	REPOSITORIES=$( find -L "${USERBUILD}" -type d -name ".git" -not -path "*/src/*" -exec dirname {} \; )
 
-	while read -r -u 9 repo; do
+	while read -r repo; do
 
 		if isDotfile "${repo}"; then continue; fi
 		if isClean   "${repo}"; then continue; fi
@@ -12,7 +12,7 @@ main(){
 		cleanRepo "${repo}"
 		echo ""
 
-	done 9<<< "${REPOSITORIES}"
+	done <<< "${REPOSITORIES}"
 }
 
 cleanRepo(){
@@ -20,7 +20,7 @@ cleanRepo(){
 	git -C "${1}" clean -d -x -ff --dry-run | sed 's/^/  /'
 
 	echo -n 'Delete files? [y|N] '
-	read -r answer
+	read -r answer < /dev/tty
 	if [ "${answer}" = 'y' ] || [ "${answer}" = "Y" ]; then
 		git -C "${1}" clean -d -x -ff -q
 		echo "Done."
