@@ -6,14 +6,13 @@ TEMPFILE="/tmp/X11-VT${XDG_VTNR}-${USER}-lockscreen-${FULL_RESOLUTION}.png"
 if ! [ -r "${TEMPFILE}" ]; then
 	# build image for all connected monitors
 	while read line; do
-		[ -n "${IMGSTRING}" ] && IMGSTRING="${IMGSTRING} -composite"
 		RESOLUTION="$(grep -Eo '[0-9]+x[0-9]+' <<< ${line})"
 		GEOMETRY="$(grep -Eo '\+[0-9]+\+[0-9]+' <<< ${line})"
-		IMGSTRING="${IMGSTRING} ( ${HOME}/.config/nitrogen/current -resize ${RESOLUTION}^ -gravity center -extent ${RESOLUTION} ) -gravity NorthWest -geometry ${GEOMETRY}"
+		IMGSTRING="${IMGSTRING} ( ${HOME}/.config/nitrogen/current -resize ${RESOLUTION}^ -gravity center -extent ${RESOLUTION} ) -gravity NorthWest -geometry ${GEOMETRY} -composite"
 	done <<< "$(xrandr | grep -Eo '[0-9]+x[0-9]+[+-][0-9]+[+-][0-9]+')"
 
 	# create lock image
-	convert -size ${FULL_RESOLUTION} xc:white ${IMGSTRING} -composite "${TEMPFILE}"
+	convert -size ${FULL_RESOLUTION} xc:transparent ${IMGSTRING} PNG32:"${TEMPFILE}"
 fi
 
 #put monitor to sleep
