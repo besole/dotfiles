@@ -19,7 +19,7 @@ export SSH_AUTH_SOCK
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
 picom &
-nitrogen --restore &
+feh --no-fehbg --bg-fill ~/.config/feh/current
 nextcloud &
 dunst &
 

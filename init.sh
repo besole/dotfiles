@@ -10,6 +10,7 @@ LINKS=(
 	".zshrc"
 
 	".config/dunst"
+	".config/feh"
 	".config/i3"
 	".config/i3blocks"
 	".config/kitty"
