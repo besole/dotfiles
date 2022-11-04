@@ -8,6 +8,7 @@ NEEDED_DIRS=(
 )
 LINKS=(
 	".zshrc"
+	".zprofile"
 
 	".config/dunst"
 	".config/feh"
