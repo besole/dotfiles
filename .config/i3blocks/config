@@ -10,6 +10,10 @@ interval=persist
 command=pgrep qemu-system >/dev/null && printf "Qemu\n\n$color_warning\n"; exit 0
 interval=10
 
+[dockerrunning]
+command=[ -n "$(docker ps -q)" ] && printf "Docker\n\n$color_warning\n"; exit 0
+interval=10
+
 [brightness]
 command=$HOME/.config/i3blocks/brightness.sh
 interval=once
