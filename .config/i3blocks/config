@@ -2,6 +2,10 @@
 command=$HOME/.config/i3blocks/window-title.py
 interval=persist
 
+[wifi]
+command=$HOME/.config/i3blocks/wifi.sh
+interval=5
+
 [brightness]
 command=$HOME/.config/i3blocks/brightness.sh
 interval=once
