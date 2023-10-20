@@ -11,6 +11,10 @@ fi
 # Set Look and Feel
 [ -f $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
 
+# Split Widescreen Monitor
+xrandr --setmonitor iiyama-left  "1720/400x1440/345+2560+0" HDMI-A-0
+xrandr --setmonitor iiyama-right "1720/400x1440/345+4280+0" none
+
 # Keyring
 eval $( /usr/bin/gnome-keyring-daemon --start )
 export SSH_AUTH_SOCK
