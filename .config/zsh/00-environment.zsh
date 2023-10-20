@@ -1,5 +1,11 @@
-# Prompt & tab name
-export PS1="%(?..%F{red}%?%f| )%F{green}%n@%m%f:%~ %# "
+# Prompt
+if [ -n "${SSH_CLIENT}" ]; then
+	export PS1="%(?..%F{red}%?%f| )%F{green}%n%f@%F{red}%m%f:%~ %# "
+else
+	export PS1="%(?..%F{red}%?%f| )%F{green}%n%f@%F{green}%m%f:%~ %# "
+fi
+
+# Tab Names
 preexec () {print -Pn "\e]0;${3}\a"}
 precmd () {print -Pn "\e]0;%n@%m:%~\a"}
 
