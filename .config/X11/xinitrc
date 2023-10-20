@@ -18,7 +18,6 @@ export SSH_AUTH_SOCK
 # Run the Environment
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
-picom &
 feh --no-fehbg --bg-fill ~/.config/feh/current
 nextcloud &
 dunst &
