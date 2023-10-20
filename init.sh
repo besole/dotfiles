@@ -7,8 +7,7 @@ NEEDED_DIRS=(
 	".local"
 )
 LINKS=(
-	".zshrc"
-	".zprofile"
+	".zshenv"
 
 	".config/dunst"
 	".config/feh"
