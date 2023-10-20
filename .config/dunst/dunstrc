@@ -1,7 +1,9 @@
 [global]
     follow = mouse
 
-    geometry = "0x5-30+20"
+    origin = "top-center"
+    offset = 0x50
+
     indicate_hidden = yes
     notification_height = 0
 
