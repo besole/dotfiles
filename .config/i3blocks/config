@@ -29,5 +29,5 @@ interval=once
 signal=2
 
 [datetime]
-command=echo " $(date "+%H:%M")   $(date +"%a, %d.%m.%Y")"
+command=echo " $(date "+%H:%M")  󰃭 $(date +"%a, %d.%m.%Y")"
 interval=10
