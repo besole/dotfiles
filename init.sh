@@ -16,6 +16,7 @@ LINKS=(
 	".config/kitty"
 	".config/nitrogen"
 	".config/picom"
+	".config/powerlevel10k"
 	".config/rofi"
 	".config/sway"
 	".config/vim"
