@@ -19,9 +19,10 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 # History
-export HISTSIZE=1000
 export HISTFILE="${XDG_DATA_HOME}/zsh-history"
+export HISTSIZE=1000000
 export SAVEHIST=1000000
+setopt share_history
 
 # Tools
 export EDITOR="vim"
