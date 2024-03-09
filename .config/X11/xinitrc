@@ -19,7 +19,6 @@ export SSH_AUTH_SOCK
 numlockx &
 unclutter --timeout 2 --jitter 10 --ignore-scrolling &
 feh --no-fehbg --bg-fill ~/.config/feh/current
-nextcloud &
 dunst &
 
 # Create i3 config from config-parts
