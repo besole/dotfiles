@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export DESKTOP_SESSION=gnome
+exec /opt/sasagCallMonitor2/sasagcallmonitor2
