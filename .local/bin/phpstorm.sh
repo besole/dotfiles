@@ -1,0 +1,1 @@
+/home/besole/apps/PhpStorm/current/bin/phpstorm.sh
