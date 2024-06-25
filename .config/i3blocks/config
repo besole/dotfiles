@@ -23,10 +23,6 @@ interval=60
 command=$HOME/.config/i3blocks/cpu-temp.sh
 interval=10
 
-[gputemp]
-command=$HOME/.config/i3blocks/gpu-temp.sh
-interval=10
-
 [volume]
 command=SHOWICON=1 $HOME/.config/i3blocks/audio.sh
 interval=once
