@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if ! ps -e | grep -i 'xorg' &>/dev/null; then
 	# WAYLAND

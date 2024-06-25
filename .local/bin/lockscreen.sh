@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FULL_RESOLUTION="$(xrandr | grep -Eo 'current [0-9]+ x [0-9]+' | awk '{print $2 "x" $4}')"
 TEMPFILE="/tmp/X11-VT${XDG_VTNR}-${USER}-lockscreen-${FULL_RESOLUTION}.png"
