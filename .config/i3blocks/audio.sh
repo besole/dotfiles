@@ -74,7 +74,7 @@ for i in $(seq 0 25); do
 	fi
 done
 
-paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga &
 notify-send -u low -h string:x-canonical-private-synchronous:besole-volume "${title}" "${info}"
 
 # Write output
