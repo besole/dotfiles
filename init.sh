@@ -15,6 +15,7 @@ LINKS=(
 	".config/i3blocks"
 	".config/kitty"
 	".config/nitrogen"
+	".config/openconnect"
 	".config/picom"
 	".config/powerlevel10k"
 	".config/rofi"
