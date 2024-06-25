@@ -10,6 +10,10 @@ interval=10
 command=[ -n "$(docker ps -q)" ] && printf "󰡨\n\n$color_warning\n"; exit 0
 interval=10
 
+[vpn]
+command=pgrep openconnect >/dev/null && echo "󰌾" || printf "󱙱\n\n$color_warning"; exit 0
+interval=10
+
 [brightness]
 command=$HOME/.config/i3blocks/brightness.sh
 interval=once
