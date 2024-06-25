@@ -1,7 +1,3 @@
-color_inactive=#999999
-color_warning=#EE7700
-color_error=#FF0000
-
 [windowtitle]
 command=$HOME/.config/i3blocks/window-title.py
 interval=persist
