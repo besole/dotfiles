@@ -29,9 +29,9 @@ getNextCardIndex(){
 }
 getSoundIcon(){
 	cardType=$(getDefaultAttribute 'name')
-	icon="蓼"
+	icon="󰓃"
 	if echo "$cardType" | grep -q 'Jabra'; then
-		icon=""
+		icon="󰋋"
 	fi
 	echo "$icon"
 }
@@ -48,8 +48,8 @@ setNextDefault(){
 # check if pulseaudio is running
 pactl info >/dev/null 2>/dev/null
 if [ $? -ne 0 ]; then
-	echo "婢"
-	echo "婢"
+	echo "󰓄"
+	echo "󰓄"
 	echo "${color_error}"
 	return 1
 fi

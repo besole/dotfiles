@@ -3,4 +3,4 @@
 CURRENT=$( brightnessctl get )
 MAX=$(brightnessctl max )
 PERCENTAGE=$((100 * CURRENT / MAX))
-echo " ${PERCENTAGE}%"
+echo "󰌵 ${PERCENTAGE}%"

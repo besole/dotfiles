@@ -5,15 +5,15 @@ BAT=/sys/class/power_supply/BAT0
 CAPACITY=$(cat "${BAT}/capacity")
 
 if [ "$( cat "${BAT}/status" )" = "Charging" ]; then
-  ICON=""
+  ICON="󰂄"
 elif [ "${CAPACITY}" -ge 65 ]; then
-  ICON=""
+  ICON="󰂂"
 elif [ "${CAPACITY}" -ge 40 ]; then
-  ICON=""
+  ICON="󰁿"
 elif [ "${CAPACITY}" -ge 15 ]; then
-  ICON=""
+  ICON="󰁼"
 else
-  ICON=""
+  ICON="󰁺"
 	color="#ff0000"
 fi
 
