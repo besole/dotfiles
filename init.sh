@@ -5,6 +5,7 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 NEEDED_DIRS=(
 	".config"
 	".local"
+	".local/share"
 )
 LINKS=(
 	".zshenv"
