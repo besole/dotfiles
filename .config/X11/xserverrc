@@ -1,4 +1,3 @@
 #!/bin/sh
 
-exec /usr/bin/Xorg -keeptty -nolisten tcp "${@}"
-#exec /usr/bin/Xorg -keeptty -nolisten tcp ":${XDG_VTNR}" "vt${XDG_VTNR}" "${@}"
+exec /usr/bin/Xorg ":${XDG_VTNR}" "vt${XDG_VTNR}" -novtswitch -keeptty -nolisten tcp -nolisten local "${@}"
