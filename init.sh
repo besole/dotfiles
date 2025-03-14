@@ -26,6 +26,7 @@ LINKS=(
 	".config/zsh"
 
 	".local/bin"
+	".local/share/fonts"
 )
 
 for dir in "${NEEDED_DIRS[@]}"; do
