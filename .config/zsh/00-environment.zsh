@@ -10,10 +10,10 @@ preexec () {print -Pn "\e]0;${3}\a"}
 precmd () {print -Pn "\e]0;%n@%m:%~\a"}
 
 # Autcomplete Spaces
-ZLE_REMOVE_SUFFIX_CHARS=
+export ZLE_REMOVE_SUFFIX_CHARS=
 
 # only consider the following special chars as part of a word
-WORDCHARS=-
+export WORDCHARS=-
 
 # Environment
 export XDG_CONFIG_HOME="${HOME}/.config"
