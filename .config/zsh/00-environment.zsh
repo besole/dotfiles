@@ -12,8 +12,8 @@ precmd () {print -Pn "\e]0;%n@%m:%~\a"}
 # Autcomplete Spaces
 ZLE_REMOVE_SUFFIX_CHARS=
 
-# Do not count special characters as words
-WORDCHARS=
+# only consider the following special chars as part of a word
+WORDCHARS=-
 
 # Environment
 export XDG_CONFIG_HOME="${HOME}/.config"
