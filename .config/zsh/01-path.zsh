@@ -1,4 +1,4 @@
-#!/usr/bin/evn zsh
+#!/usr/bin/env zsh
 
 append_path () {
 	case ":$PATH:" in
